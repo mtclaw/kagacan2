@@ -1,0 +1,268 @@
+a {
+    color: #4169E1;
+}
+
+a#togglecolor{
+    color: #FFFFF0;/* color of bottom text */
+}
+
+body {
+    margin: 0;
+    background-color: #F0F8FF;
+}
+
+.content {
+    padding-top: 10px;
+    padding-bottom: 80px;
+    width: 100%;
+    background-color: #F0F8FF;
+}
+
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #B0C4DE;
+    color: #FFFFF0;/* color of bottom text */
+    text-align: left;
+    border-style: solid;
+    border-width: 2px 0px 2px 0px;
+    border-color: #F0F8FF;
+}
+
+.headertext {
+    padding-left: 80px;
+    color: #3C4246;
+}
+
+a#togglecolor{
+    float: right;
+    background-color: #3C4246;
+    width: 7%;
+    padding: 12px;
+    text-align: center;
+    border-style: solid;
+    border-color: #B0C4DE;
+    border-width: 12px;
+}
+
+a#togglecolor:hover{
+    float: right;
+    background-color: #4C5555;
+    width: 7%;
+    padding: 12px;
+    text-align: center;
+    border-style: solid;
+    border-color: #B0C4DE;
+    border-width: 12px;
+}
+
+nav {
+    top: 145px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffd573;
+    border-style: solid;
+    border-width: 2px 0px 2px 0px;
+}
+
+nav a {
+    float: left;
+    display: block;
+    width: 14.8%;
+    color: #694a01;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #a67400;
+    color: #ffe6ab;
+}
+
+.maintext {
+    padding-top: 20px;
+    padding-left: 80px;
+    width: 70%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffd573;
+    color: #694a01;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px 0px 2px 0px;
+}
+
+.content p {
+    color: #000000;
+}
+
+.content ul, li {
+    color: #000000;
+}
+
+.content h1, h2, h3, h4, h5, h6{
+    color: #8b0000;
+}
+
+.headbutton{
+    width: 95%;
+}
+
+#rightboard{
+    position: fixed;
+    right: 40px;
+    top: 250px;
+    width: 20%;
+    height: 900px;
+    overflow-y:auto;
+}
+
+.board{
+    background-color: #B0C4DE;
+    color: #3C4246;
+    border-style: solid;
+    text-align: center;
+    border-radius: 2px;
+    overflow-y:auto;
+    margin-bottom: 10px;
+}
+
+.catewrapper{
+    padding: 12px;
+    text-align: left;
+}
+
+button.ctlg{
+    color: #3C4246;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+button.ctlg:hover{
+    color: #000000;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#gototopbtn{
+    visibility: hidden;
+    z-index: 99;
+    position: fixed;
+    right: 0px;
+    bottom: 140px;
+    border: solid;
+    border-width: 2px;
+    border-color: #694a01;
+    outline: none;
+    background-color: #ffd573;
+    color: #694a01;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 2px;
+}
+
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.stickycategory {
+    position: fixed;
+    top: 0;
+}
+
+.sticky + .content {
+padding-top: 60px;
+}
+
+pre code{
+    border-color: #B0C4DE;
+    border-style: solid;
+    border-radius: 0.2em;
+    border-width: 1px;
+}
+
+code.inline_code{
+    background-color: #ffffff;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    padding-top: 0.05em;
+    padding-bottom: 0.05em;
+    border-color: #B0C4DE;
+    border-style: solid;
+    border-radius: 0.2em;
+    border-width: 1px;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+.bookmark1{
+    padding-left: 0px;
+}
+
+.bookmark2{
+    padding-left: 25px;
+}
+
+.bookmark3{
+    padding-left: 50px;
+}
+
+.bookmark4{
+    padding-left: 75px;
+}
+
+del{
+    color: #d0d0d0;
+}
+
+img{
+    width: 30%;
+}
+
+
+table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid;
+}
+
+thead{
+    border-collapse: collapse;
+    border: 2px solid;
+}
+
+col{
+    border-collapse: collapse;
+    border: 2px solid;
+}
+
+td, th{
+    border-collapse: collapse;
+    border: 1px solid;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th{
+    background-color: #B0C4DE;
+}
+
+a.badlink{
+    color: #8b0000;
+}

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/css/lightstyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js" id="MathJax-script" async></script>
+    <!-- enable '$...$' works as the same way as \(...\)-->
+    <!-- because vscode only recognize $...$ in preview -->
+    <script type="text/javascript">
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+    </script>
+
+    <link id="hljsstylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+
+    <script src="/script/rightboard.js"></script>
+    <script src="/script/togglecolor.js"></script>
+
+    <title>kagacan - 主页</title>
+</head>
+
+<body onload="checkCookie()">
+    <!-- switch CSS bottom -->
+    <header>
+        <a onclick="togglecolor()" id="togglecolor">暗色模式</a>
+        <div class="headertext">
+        <h1>Kagami Cannery
+        </h1>
+        <p>mtclaw's blog.</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="/index.html"><b>首页</b></a>
+        <a href="javascript:void(0)"><b>分类(施工中)</b></a>
+        <a href="javascript:void(0)"><b>按时间归档(施工中)</b></a>
+        <a href="javascript:void(0)"><b>RSS(施工中)</b></a>
+        <a href="javascript:void(0)"><b>友情链接(施工中)</b></a>
+        <a href="/site/special/aboutme.html"><b>关于本博客</b></a>
+    </nav>
+
+    <div class="content">
+        <div class="maintext">
+            <!-- beginmaintext-->
+            <h1>首页</h1>
+            <!-- endmaintext-->
+        </div>
+    </div>
+
+    <div id="rightboard">
+        <div class="board" id="category">
+            <p><button id="ctlghead" class="ctlg headbutton" onclick="togglecatalog()"><b>▼ 目录 ▼</b></button></p>
+            <div id="categorywrapper" class="catewrapper">
+                <ul id="categorycontent">
+                <!-- begincategorycontent-->
+                <!-- endcategorycontent-->
+                </ul>
+            </div>
+        </div>
+    
+        <div class="board" id="linkout">
+            <p><button id="lnouth" class="ctlg headbutton" onclick="togglelnout()"><b>▼ 出链 ▼</b></button></p>
+            <div id="lnoutwrapper" class="catewrapper">
+                <!-- beginlnoutwrapper-->
+                <!-- endlnoutwrapper-->
+            </div>
+        </div>
+    
+        <div class="board" id="linkin">
+            <p><button id="lninh" class="ctlg headbutton" onclick="togglelnin()"><b>▼ 入链 ▼</b></button></p>
+            <div id="lninwrapper" class="catewrapper">
+                <!-- beginlninwrapper-->
+                <!-- endlninwrapper-->
+            </div>
+        </div>
+    </div>
+
+
+    <button onclick="topFunction()" id="gototopbtn" title="回到顶部"><b>↑</b></button> 
+
+    <script>
+        togglelnout();
+        togglelnin();
+
+        var isColorLight = true;
+        var stylesheet = document.getElementsByTagName("link")[0];
+        var hljsstylesheet = document.getElementById("hljsstylesheet");
+        var togglecolorbtm = document.getElementById("togglecolor");
+
+        var lightpath = "/css/lightstyle.css";
+        var darkpath = "/css/darkstyle.css";
+        var light_hljs_path = "/lib/highlight//styles//github.min.css";
+        var dark_hljs_path = "/lib/highlight//styles//github-dark.min.css";
+
+        function togglecolor()
+        {
+            if(isColorLight)
+            {
+                stylesheet.href = darkpath;
+                hljsstylesheet.href = dark_hljs_path;
+                isColorLight = false;
+                togglecolorbtm.innerHTML = "亮色模式";
+                document.cookie = "isColorLight=false; path=/; SameSite=None; Secure";
+            }
+            else
+            {
+                stylesheet.href = lightpath;
+                hljsstylesheet.href = light_hljs_path;
+                isColorLight = true;
+                togglecolorbtm.innerHTML = "暗色模式";
+                document.cookie = "isColorLight=true; path=/; SameSite=None; Secure";
+            }
+        }
+
+        function checkCookie()
+        {
+            checkCookie_color();
+        }
+
+        function getCookie(cname)
+        {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+            }
+            return "";
+        }
+
+        function checkCookie_color()
+        {
+            var colortype=getCookie("isColorLight");
+            if (colortype!="")
+            {
+                if(colortype == "true")
+                {
+                    isColorLight = true;
+                }
+                else
+                {
+                    isColorLight = false;
+                }
+                togglecolor();
+                togglecolor();
+            }
+            else
+            {
+                document.cookie = "isColorLight=true; path=/; SameSite=None; Secure";
+                isColorLight = true;
+                togglecolor();
+                togglecolor();
+            }
+        }
+
+        var category = document.getElementById("category");
+        var gototopbtn = document.getElementById("gototopbtn");
+        var catecontentlist = category.getElementsByTagName("a");
+
+        window.onscroll = function() {stickeyheader()};
+
+        var navbar = document.getElementsByTagName("nav")[0];
+        var sticky = navbar.offsetTop;
+
+        function stickeyheader() 
+        {
+            var rightboard = document.getElementById("rightboard");
+            for (i = 0; i < catecontentlist.length; i++)
+            { 
+                var anchor = catecontentlist[i];
+                var targetID = anchor.href.slice(anchor.href.indexOf("#")+1);
+                var target = document.getElementsByName(targetID)[0];
+                var toppos = target.offsetTop;
+            }
+            if (window.pageYOffset >= sticky) 
+            {
+                navbar.classList.add("sticky")
+                rightboard.style.top = "100px";
+                gototopbtn.style.visibility="visible";
+            } 
+            else 
+            {
+                navbar.classList.remove("sticky");
+                rightboard.style.top = 250 - window.pageYOffset + "px";
+                gototopbtn.style.visibility="hidden";
+            }
+        }
+
+        function topFunction()
+        {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        function gotopos(nametag)
+        {
+            var target = document.getElementsByName(nametag)[0];
+            var toppos = target.offsetTop;
+            window.scrollTo(0,toppos-70);
+        }
+    </script>
+
+    
+
+    <script>hljs.highlightAll();</script>
+    
+    <footer>
+        <p>Copyright © by mtclaw 2024 文档纯洁派: Powered by 手搓html</p>
+    </footer>
+
+</body>
+
+</html>
